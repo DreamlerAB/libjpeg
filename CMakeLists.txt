@@ -40,6 +40,8 @@ if ( BUILD_STATIC )
 else ()
   add_library ( jpeg ${SRC} ${HEADERS} )
 endif()
+target_include_directories(jpeg PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)  
 
 if ( BUILD_EXECUTABLES )
   add_executable ( cjpeg cdjpeg.c cjpeg.c rdbmp.c rdgif.c rdppm.c rdrle.c rdtarga.c 
